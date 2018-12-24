@@ -15,4 +15,6 @@ export PATH
 # User specific aliases and functions
 neofetch --off
 PS1="\e[0;34m\u\e[m@\e[1;31m[\w]\e[m~\$ "
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
