@@ -1,20 +1,7 @@
-# .bashrc
+#Defaults are not shown
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
-
-# User specific environment
-PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-export PATH
-
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
-# User specific aliases and functions
-neofetch --off
-PS1="\e[0;34m\u\e[m@\e[1;31m[\w]\e[m~\$ "
-export VISUAL=vim
+neofetch --off #Displays neofetch without distro logo
+PS1="\e[0;34m\u\e[m@\e[1;31m[\w]\e[m~\$ " #Sets PS1
+export VISUAL=vim #This and line below set vim as default editor
 export EDITOR="$VISUAL"
 
