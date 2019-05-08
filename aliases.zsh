@@ -42,7 +42,6 @@ alias pin='sudo pacman -S'    # install
 alias pun='sudo pacman -Rs'   # remove
 alias pcc='sudo pacman -Scc'  # clear cache
 alias prm='sudo pacman -Rnsc' # really remove, configs and all
-alias pinfo='sudo pacman -Si' # get info about a package
 
 alias pkg='makepkg --printsrcinfo > .SRCINFO && makepkg -fsrc'
 alias spkg='makepkg --printsrcinfo > .SRCINFO && makepkg -fsrc --sign'
@@ -68,12 +67,11 @@ alias xp='xprop | awk -F\"'" '/CLASS/ {printf \"NAME = %s\nCLASS = %s\n\", \$2, 
 alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
 
 
-alias music='cd /mnt/2tb/Music; ranger' # go to my music folder and open ranger
-alias exhdd='cd /home/Transcend/.t-stuff/; ranger'
-alias gdrive='cd ~/grive && grive && cd -' # sync google drive
+alias music='cd /mnt/.t-stuff/music; ranger'
+alias exhdd='cd /mnt/.t-stuff; ranger'
+alias gdrive='cd ~/grive && grive && cd -'
 alias epq='cd ~/grive/epq/epq'
-alias textemplate='cp ~/grive/documents/template.tex ./' # Copy LaTeX template to current folder
+alias textemplate='cp ~/grive/documents/template.tex ./'
 alias tor='cd ~/tor/ && ./start-tor-browser.desktop && cd -; exit'
-alias downloads='cd /mnt/2tb/Downloads'
-alias torrents='cd /mnt/1tb/torrents'
-alias vpn='cd /etc/openvpn; sudo openvpn uk-lon.prod.surfshark.com_tcp.ovpn; bg; disown;'
+alias vpn='cd /etc/openvpn; sudo openvpn uk-lon.prod.surfshark.comsurfshark_openvpn_tcp.ovpn; bg; disown;'
+alias aliases='nvim ~/.zsh/settings/aliases.zsh'
