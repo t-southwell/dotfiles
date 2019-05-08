@@ -4,9 +4,8 @@
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export EDITOR="nvim"
-export VDPAU_DRIVER="nouveau"
 export TERMINAL="st"
-export BROWSER="firefox"
+export BROWSER="brave"
 export READER="zathura"
 export FILE="vu"
 # export BIB="$HOME/Documents/LaTeX/uni.bib"
@@ -33,6 +32,3 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 
 # Start graphical server if i3 not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
-
-# Switch escape and caps if tty:
-sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
