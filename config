@@ -1,11 +1,4 @@
 # vim: filetype=i3
-# File originally by Luke Smith <https://lukesmith.xyz>
-
-# This config file will use environmental variables such as $BROWSER and $TERMINAL.
-# You can set these variables in ~/.profile or ~/.bash_profile if you have it as below:
-#
-# export FILE="ranger"
-# export TERMINAL="st"
 
 # #---Basic Definitions---# #
 for_window [class="^.*"] border pixel 2
@@ -48,8 +41,8 @@ exec --no-startup-id unclutter
 exec_always --no-startup-id mpdupdate
 # Podboat automatic queue and download
 exec_always --no-startup-id podentr
-# open qbittorrent on workspace 10
-exec --no-startup-id i3-msg 'workspace 10; exec qbittorrent'
+# Update packages on startup
+exec --no-startup-id $term -e sudo pacman -Syyu
 
 bar {
 	font pango:mono 10
@@ -76,7 +69,7 @@ bindsym $mod+grave		exec --no-startup-id dmenuunicode
 ##bindsym $mod+asciitilde
 
 #STOP/HIDE EVERYTHING:
-bindsym $mod+Shift+Delete	exec --no-startup-id lmc pause ; exec --no-startup-id pauseallmpv; workspace 0; exec surf news.ycombinator.com
+bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec --no-startup-id lmc pause ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
 
 # Show selection:
 bindsym $mod+Insert		exec --no-startup-id showclip
@@ -147,9 +140,7 @@ bindsym $mod+Shift+l		move right 30
 bindsym $mod+z			gaps outer current plus 5
 bindsym $mod+Shift+z		gaps outer current minus 5
 
-#bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock -e -f -c 000000 -i ~/.config/lock.png
-bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock -n -i ~/.config/lock.png --insidecolor=373445ff --ringcolor=ffffffff --line-uses-inside --keyhlcolor=d23c3dff --bshlcolor=d23c3dff --separatorcolor=00000000 --insidevercolor=fecf4dff --insidewrongcolor=d23c3dff --ringvercolor=ffffffff --ringwrongcolor=ffffffff --indpos="x+86:y+1203" --radius=15 --veriftext="" --wrongtext=""
-
+bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock -n -i ~/.config/wall.png --insidecolor=373445ff --ringcolor=ffffffff --line-uses-inside --keyhlcolor=d23c3dff --bshlcolor=d23c3dff --separatorcolor=00000000 --insidevercolor=fecf4dff --insidewrongcolor=d23c3dff --ringvercolor=ffffffff --ringwrongcolor=ffffffff --indpos="x+100:y+1000" --radius=15 --veriftext="" --wrongtext=""
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 
 bindsym $mod+c			exec --no-startup-id cabl
@@ -164,10 +155,8 @@ bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id botto
 bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id bottomright
 
-bindsym $mod+m 			exec --no-startup-id $term -e cmus; workspace 2
+bindsym $mod+m 			exec --no-startup-id $term -e ncmpcpp
 bindsym $mod+Shift+m		exec --no-startup-id lmc mute
-
-bindsym $mod+Ctrl+t		exec --no-startup-id telegram-desktop
 
 # #---Workspace Bindings---# #
 bindsym $mod+Home		workspace $ws1
@@ -369,4 +358,3 @@ bindsym XF86Documents		exec $term -e $FILE ~/Documents
 ##bindsym XF86Battery		exec
 ##bindsym XF86Bluetooth		exec
 bindsym XF86WLAN		exec $netrefresh
-##exec_always --no-startup-id notify-send -i ~/.scripts/pix/larbs.png '<b>Welcome to LARBS:</b> Press Super+F1 for the manual.' -t 10000
