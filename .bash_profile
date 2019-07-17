@@ -5,7 +5,7 @@
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="brave"
+export BROWSER="firefox"
 export READER="zathura"
 export FILE="vu"
 # export BIB="$HOME/Documents/LaTeX/uni.bib"
@@ -14,7 +14,7 @@ export REFER="$HOME/Documents/referbib"
 export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
 export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
-export DOWNLOADS="/mnt/2tb/Downloads"
+export DOWNLOADS="~/Downloads"
 
 # less/man colors
 export LESS=-R
